@@ -7,9 +7,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: ./gradlew jar
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew jar
+
+      - name: xxxxxxxxx
+        run: ls -alR
+
+      - name: run
+        run: java -jar ./build/libs/CICD_Demo-1.0-SNAPSHOT.jar
+
+      - name: Archive test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test
+          path: build/libs
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ls
+      - uses: actions/download-artifact@master
+        with:
+          name: Test
+          path: ./
+
+      - name: xxxxxxxxx
+        run: ls -alR
+
+      - name: run artifact
+        run: java -jar CICD_Demo-1.0-SNAPSHOT.jar
