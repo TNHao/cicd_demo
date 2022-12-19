@@ -6,10 +6,9 @@ import org.junit.jupiter.api.Test;
  * @date 20/12/2022 00:06
  */
 public class CalcTest {
-
 	@Test
 	public void calcTest() {
-		Main obj = new Main();
-		assert obj.calc(5, 3) == 8;
+		System.out.println("Testing...");
+		assert Main.calc(5, 3) == 8;
 	}
 }
