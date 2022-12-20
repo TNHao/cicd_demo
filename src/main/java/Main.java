@@ -6,7 +6,8 @@
 public class Main {
 	// ở đây, ta có haàm tính tổng như sau
 	public static int calc(int a, int b) {
-		return a + b;
+		// Hàm tính tổng bị viết sai
+		return a + b + 1;
 	}
 
 	public static void main(String[] args) {

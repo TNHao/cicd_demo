@@ -9,6 +9,7 @@ public class CalcTest {
 	@Test
 	public void calcTest() {
 		System.out.println("Testing...");
+		// Mong đợi kết quả là 8
 		assert Main.calc(5, 3) == 8;
 	}
 }
